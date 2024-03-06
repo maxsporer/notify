@@ -5,6 +5,7 @@ import { notificationApp } from "./internal/initialize";
 import { CardData } from "./cardModels";
 import { TeamsBot } from "./teamsBot";
 
+console.log('Running index.ts');
 // Create HTTP server.
 const server = restify.createServer();
 server.use(restify.plugins.bodyParser());
@@ -28,6 +29,7 @@ server.post(
   restify.plugins.queryParser(),
   restify.plugins.bodyParser(), // Add more parsers if needed
   async (req, res) => {
+    console.log('notification endpoint called');
     // By default this function will iterate all the installation points and send an Adaptive Card
     // to every installation.
     const pageSize = 100;
